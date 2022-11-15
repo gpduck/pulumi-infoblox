@@ -16,7 +16,7 @@ package main
 
 import (
 	infoblox "github.com/gpduck/pulumi-infoblox/provider"
-	"github.com/pulumi/pulumi-infoblox/provider/pkg/version"
+	"github.com/gpduck/pulumi-infoblox/provider/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfgen"
 )
 
