@@ -2,7 +2,7 @@ PROJECT_NAME := infoblox Package
 
 SHELL            := /bin/bash
 PACK             := infoblox
-ORG              := pulumi
+ORG              := gpduck
 PROJECT          := github.com/${ORG}/pulumi-${PACK}
 NODE_MODULE_NAME := @pulumi/${PACK}
 TF_NAME          := ${PACK}
