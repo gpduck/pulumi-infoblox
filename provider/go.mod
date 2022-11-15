@@ -4,6 +4,7 @@ go 1.18
 
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 upstream-v2.21.0
+	github.com/hashicorp/vault/api => github.com/hashicorp/vault/api v1.1.1
 )
 
 require (
