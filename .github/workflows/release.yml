@@ -80,7 +80,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{matrix.nodeversion}}
-          registry-url: ${{env.NPM_REGISTRY_URL}}
+          registry-url: https://npm.pkg.github.com
       - name: Setup DotNet
         uses: actions/setup-dotnet@v1
         with:
@@ -112,9 +112,9 @@ jobs:
         uses: JS-DevTools/npm-publish@v1
         with:
           access: "public"
-          token: ${{ env.NPM_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           package: ${{github.workspace}}/sdk/nodejs/bin/package.
-          registry: ${{env.NPM_REGISTRY_URL}}
+          registry: https://npm.pkg.github.com
       - if: ${{ matrix.language == 'dotnet' && env.PUBLISH_NUGET == 'true' }}
         name: publish nuget package
         run: |
