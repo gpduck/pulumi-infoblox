@@ -19,7 +19,7 @@ import (
 	"path/filepath"
 
 	"github.com/gpduck/pulumi-infoblox/provider/pkg/version"
-	"github.com/infobloxopen/terraform-provider-infoblox/infoblox"
+	"github.com/gpduck/terraform-provider-infoblox/v2/infoblox"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
@@ -69,7 +69,7 @@ func Provider() tfbridge.ProviderInfo {
 		// PluginDownloadURL is an optional URL used to download the Provider
 		// for use in Pulumi programs
 		// e.g https://github.com/org/pulumi-provider-name/releases/
-		PluginDownloadURL: "",
+		PluginDownloadURL: "https://github.com/gpduck/pulumi-infoblox/releases/",
 		Description:       "A Pulumi package for creating and managing infoblox cloud resources.",
 		// category/cloud tag helps with categorizing the package in the Pulumi Registry.
 		// For all available categories, see `Keywords` in
@@ -80,7 +80,7 @@ func Provider() tfbridge.ProviderInfo {
 		Repository: "https://github.com/pulumi/pulumi-infoblox",
 		// The GitHub Org for the provider - defaults to `terraform-providers`. Note that this
 		// should match the TF provider module's require directive, not any replace directives.
-		GitHubOrg: "",
+		GitHubOrg: "gpduck",
 		Config:    map[string]*tfbridge.SchemaInfo{
 			// Add any required configuration here, or remove the example below if
 			// no additional points are required.
@@ -92,7 +92,7 @@ func Provider() tfbridge.ProviderInfo {
 			// },
 		},
 		PreConfigureCallback: preConfigureCallback,
-		Resources:            map[string]*tfbridge.ResourceInfo{
+		Resources: map[string]*tfbridge.ResourceInfo{
 			// Map each resource in the Terraform provider to a Pulumi type. Two examples
 			// are below - the single line form is the common case. The multi-line form is
 			// needed only if you wish to override types or other default options.
@@ -105,6 +105,15 @@ func Provider() tfbridge.ProviderInfo {
 			// 		"tags": {Type: tfbridge.MakeType(mainPkg, "Tags")},
 			// 	},
 			// },
+			"infoblox_a_record":               {Tok: tfbridge.MakeResource(mainPkg, "record", "A")},
+			"infoblox_aaaa_record":            {Tok: tfbridge.MakeResource(mainPkg, "record", "AAAA")},
+			"infoblox_cname_record":           {Tok: tfbridge.MakeResource(mainPkg, "record", "CName")},
+			"infoblox_ip_allocation":          {Tok: tfbridge.MakeResource(mainPkg, "ip", "Allocation")},
+			"infoblox_ip_association":         {Tok: tfbridge.MakeResource(mainPkg, "ip", "Association")},
+			"infoblox_ipv4_allocation":        {Tok: tfbridge.MakeResource(mainPkg, "ipv4", "Allocation")},
+			"infoblox_ipv4_association":       {Tok: tfbridge.MakeResource(mainPkg, "ipv4", "Association")},
+			"infoblox_ipv4_network":           {Tok: tfbridge.MakeResource(mainPkg, "ipv4", "Network")},
+			"infoblox_ipv4_network_container": {Tok: tfbridge.MakeResource(mainPkg, "ipv4", "NetworkContainer")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// Map each resource in the Terraform provider to a Pulumi function. An example

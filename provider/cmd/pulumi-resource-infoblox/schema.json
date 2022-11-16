@@ -1,0 +1,1251 @@
+{
+    "name": "infoblox",
+    "description": "A Pulumi package for creating and managing infoblox cloud resources.",
+    "keywords": [
+        "pulumi",
+        "infoblox",
+        "category/cloud"
+    ],
+    "homepage": "https://www.pulumi.com",
+    "license": "Apache-2.0",
+    "attribution": "This Pulumi package is based on the [`infoblox` Terraform Provider](https://github.com/gpduck/terraform-provider-infoblox).",
+    "repository": "https://github.com/pulumi/pulumi-infoblox",
+    "pluginDownloadURL": "https://github.com/gpduck/pulumi-infoblox/releases/",
+    "publisher": "Pulumi",
+    "meta": {
+        "moduleFormat": "(.*)(?:/[^/]*)"
+    },
+    "language": {
+        "csharp": {
+            "compatibility": "tfbridge20",
+            "namespaces": null,
+            "packageReferences": {
+                "Pulumi": "3.*"
+            }
+        },
+        "go": {
+            "generateExtraInputTypes": true,
+            "generateResourceContainerTypes": true,
+            "importBasePath": "github.com/pulumi/pulumi-infoblox/sdk/go/infoblox"
+        },
+        "nodejs": {
+            "compatibility": "tfbridge20",
+            "dependencies": {
+                "@pulumi/pulumi": "^3.0.0"
+            },
+            "devDependencies": {
+                "@types/mime": "^2.0.0",
+                "@types/node": "^10.0.0"
+            },
+            "disableUnionOutputTypes": true,
+            "packageDescription": "A Pulumi package for creating and managing infoblox cloud resources.",
+            "packageName": "",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/gpduck/terraform-provider-infoblox)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-infoblox` repo](https://github.com/pulumi/pulumi-infoblox/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-infoblox` repo](https://github.com/gpduck/terraform-provider-infoblox/issues).",
+            "typescriptVersion": ""
+        },
+        "python": {
+            "compatibility": "tfbridge20",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/gpduck/terraform-provider-infoblox)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi-infoblox` repo](https://github.com/pulumi/pulumi-infoblox/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-provider-infoblox` repo](https://github.com/gpduck/terraform-provider-infoblox/issues).",
+            "requires": {
+                "pulumi": "\u003e=3.0.0,\u003c4.0.0"
+            }
+        }
+    },
+    "config": {
+        "variables": {
+            "connectTimeout": {
+                "type": "integer",
+                "description": "Maximum wait for connection, in seconds. Zero or not specified means wait indefinitely.\n"
+            },
+            "password": {
+                "type": "string",
+                "description": "Password to authenticate with Infoblox server.\n"
+            },
+            "poolConnections": {
+                "type": "integer",
+                "description": "Maximum number of connections to establish to the Infoblox server. Zero means unlimited.\n"
+            },
+            "port": {
+                "type": "string",
+                "description": "Port number used for connection for Infoblox Server.\n"
+            },
+            "server": {
+                "type": "string",
+                "description": "Infoblox server IP address.\n"
+            },
+            "sslmode": {
+                "type": "boolean",
+                "description": "If set, Infoblox client will permit unverifiable SSL certificates.\n"
+            },
+            "username": {
+                "type": "string",
+                "description": "User to authenticate with Infoblox server.\n"
+            },
+            "wapiVersion": {
+                "type": "string",
+                "description": "WAPI Version of Infoblox server defaults to v2.7.\n"
+            }
+        },
+        "defaults": [
+            "server",
+            "username"
+        ]
+    },
+    "provider": {
+        "description": "The provider type for the infoblox package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "properties": {
+            "connectTimeout": {
+                "type": "integer",
+                "description": "Maximum wait for connection, in seconds. Zero or not specified means wait indefinitely.\n"
+            },
+            "password": {
+                "type": "string",
+                "description": "Password to authenticate with Infoblox server.\n"
+            },
+            "poolConnections": {
+                "type": "integer",
+                "description": "Maximum number of connections to establish to the Infoblox server. Zero means unlimited.\n"
+            },
+            "port": {
+                "type": "string",
+                "description": "Port number used for connection for Infoblox Server.\n"
+            },
+            "server": {
+                "type": "string",
+                "description": "Infoblox server IP address.\n"
+            },
+            "sslmode": {
+                "type": "boolean",
+                "description": "If set, Infoblox client will permit unverifiable SSL certificates.\n"
+            },
+            "username": {
+                "type": "string",
+                "description": "User to authenticate with Infoblox server.\n"
+            },
+            "wapiVersion": {
+                "type": "string",
+                "description": "WAPI Version of Infoblox server defaults to v2.7.\n"
+            }
+        },
+        "required": [
+            "server",
+            "username"
+        ],
+        "inputProperties": {
+            "connectTimeout": {
+                "type": "integer",
+                "description": "Maximum wait for connection, in seconds. Zero or not specified means wait indefinitely.\n"
+            },
+            "password": {
+                "type": "string",
+                "description": "Password to authenticate with Infoblox server.\n"
+            },
+            "poolConnections": {
+                "type": "integer",
+                "description": "Maximum number of connections to establish to the Infoblox server. Zero means unlimited.\n"
+            },
+            "port": {
+                "type": "string",
+                "description": "Port number used for connection for Infoblox Server.\n"
+            },
+            "server": {
+                "type": "string",
+                "description": "Infoblox server IP address.\n"
+            },
+            "sslmode": {
+                "type": "boolean",
+                "description": "If set, Infoblox client will permit unverifiable SSL certificates.\n"
+            },
+            "username": {
+                "type": "string",
+                "description": "User to authenticate with Infoblox server.\n"
+            },
+            "wapiVersion": {
+                "type": "string",
+                "description": "WAPI Version of Infoblox server defaults to v2.7.\n"
+            }
+        },
+        "requiredInputs": [
+            "server",
+            "username"
+        ]
+    },
+    "resources": {
+        "infoblox:ip/allocation:Allocation": {
+            "properties": {
+                "allocatedIpv4Addr": {
+                    "type": "string",
+                    "description": "Value which comes from 'ipv4_addr' (if specified) or from auto-allocation function (using 'ipv4_cidr').\n"
+                },
+                "allocatedIpv6Addr": {
+                    "type": "string",
+                    "description": "Value which comes from 'ipv6_addr' (if specified) or from auto-allocation function (using 'ipv6_cidr').\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "A description of IP address allocation.\n"
+                },
+                "dnsView": {
+                    "type": "string",
+                    "description": "DNS view under which the zone has been created.\n"
+                },
+                "enableDns": {
+                    "type": "boolean",
+                    "description": "flag that defines if the host record is to be used for DNS purposes.\n"
+                },
+                "extAttrs": {
+                    "type": "string",
+                    "description": "The extensible attributes for IP address allocation, as a map in JSON format\n"
+                },
+                "fqdn": {
+                    "type": "string",
+                    "description": "The host name for Host Record in FQDN format.\n"
+                },
+                "internalId": {
+                    "type": "string",
+                    "description": "Internal ID of an object at NIOS side, used by Infoblox Terraform plugin to search for a NIOS's object which corresponds\nto the Terraform resource.\n"
+                },
+                "ipv4Addr": {
+                    "type": "string",
+                    "description": "IPv4 address of cloud instance.Set a valid IP address for static allocation and leave empty if dynamically allocated.\n"
+                },
+                "ipv4Cidr": {
+                    "type": "string",
+                    "description": "The IPv4 cidr from which an IPv4 address will be allocated.\n"
+                },
+                "ipv6Addr": {
+                    "type": "string",
+                    "description": "IPv6 address of cloud instance.Set a valid IP address for static allocation and leave empty if dynamically allocated.\n"
+                },
+                "ipv6Cidr": {
+                    "type": "string",
+                    "description": "The IPv6 cidr from which an IPv6 address will be allocated.\n"
+                },
+                "networkView": {
+                    "type": "string",
+                    "description": "network view name on NIOS server.\n"
+                },
+                "ref": {
+                    "type": "string",
+                    "description": "NIOS object's reference, not to be set by a user.\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "TTL attribute value for the record.\n"
+                }
+            },
+            "required": [
+                "allocatedIpv4Addr",
+                "allocatedIpv6Addr",
+                "fqdn",
+                "internalId",
+                "ref"
+            ],
+            "inputProperties": {
+                "allocatedIpv4Addr": {
+                    "type": "string",
+                    "description": "Value which comes from 'ipv4_addr' (if specified) or from auto-allocation function (using 'ipv4_cidr').\n"
+                },
+                "allocatedIpv6Addr": {
+                    "type": "string",
+                    "description": "Value which comes from 'ipv6_addr' (if specified) or from auto-allocation function (using 'ipv6_cidr').\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "A description of IP address allocation.\n"
+                },
+                "dnsView": {
+                    "type": "string",
+                    "description": "DNS view under which the zone has been created.\n"
+                },
+                "enableDns": {
+                    "type": "boolean",
+                    "description": "flag that defines if the host record is to be used for DNS purposes.\n"
+                },
+                "extAttrs": {
+                    "type": "string",
+                    "description": "The extensible attributes for IP address allocation, as a map in JSON format\n"
+                },
+                "fqdn": {
+                    "type": "string",
+                    "description": "The host name for Host Record in FQDN format.\n"
+                },
+                "internalId": {
+                    "type": "string",
+                    "description": "Internal ID of an object at NIOS side, used by Infoblox Terraform plugin to search for a NIOS's object which corresponds\nto the Terraform resource.\n"
+                },
+                "ipv4Addr": {
+                    "type": "string",
+                    "description": "IPv4 address of cloud instance.Set a valid IP address for static allocation and leave empty if dynamically allocated.\n"
+                },
+                "ipv4Cidr": {
+                    "type": "string",
+                    "description": "The IPv4 cidr from which an IPv4 address will be allocated.\n"
+                },
+                "ipv6Addr": {
+                    "type": "string",
+                    "description": "IPv6 address of cloud instance.Set a valid IP address for static allocation and leave empty if dynamically allocated.\n"
+                },
+                "ipv6Cidr": {
+                    "type": "string",
+                    "description": "The IPv6 cidr from which an IPv6 address will be allocated.\n"
+                },
+                "networkView": {
+                    "type": "string",
+                    "description": "network view name on NIOS server.\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "TTL attribute value for the record.\n"
+                }
+            },
+            "requiredInputs": [
+                "fqdn"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Allocation resources.\n",
+                "properties": {
+                    "allocatedIpv4Addr": {
+                        "type": "string",
+                        "description": "Value which comes from 'ipv4_addr' (if specified) or from auto-allocation function (using 'ipv4_cidr').\n"
+                    },
+                    "allocatedIpv6Addr": {
+                        "type": "string",
+                        "description": "Value which comes from 'ipv6_addr' (if specified) or from auto-allocation function (using 'ipv6_cidr').\n"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "A description of IP address allocation.\n"
+                    },
+                    "dnsView": {
+                        "type": "string",
+                        "description": "DNS view under which the zone has been created.\n"
+                    },
+                    "enableDns": {
+                        "type": "boolean",
+                        "description": "flag that defines if the host record is to be used for DNS purposes.\n"
+                    },
+                    "extAttrs": {
+                        "type": "string",
+                        "description": "The extensible attributes for IP address allocation, as a map in JSON format\n"
+                    },
+                    "fqdn": {
+                        "type": "string",
+                        "description": "The host name for Host Record in FQDN format.\n"
+                    },
+                    "internalId": {
+                        "type": "string",
+                        "description": "Internal ID of an object at NIOS side, used by Infoblox Terraform plugin to search for a NIOS's object which corresponds\nto the Terraform resource.\n"
+                    },
+                    "ipv4Addr": {
+                        "type": "string",
+                        "description": "IPv4 address of cloud instance.Set a valid IP address for static allocation and leave empty if dynamically allocated.\n"
+                    },
+                    "ipv4Cidr": {
+                        "type": "string",
+                        "description": "The IPv4 cidr from which an IPv4 address will be allocated.\n"
+                    },
+                    "ipv6Addr": {
+                        "type": "string",
+                        "description": "IPv6 address of cloud instance.Set a valid IP address for static allocation and leave empty if dynamically allocated.\n"
+                    },
+                    "ipv6Cidr": {
+                        "type": "string",
+                        "description": "The IPv6 cidr from which an IPv6 address will be allocated.\n"
+                    },
+                    "networkView": {
+                        "type": "string",
+                        "description": "network view name on NIOS server.\n"
+                    },
+                    "ref": {
+                        "type": "string",
+                        "description": "NIOS object's reference, not to be set by a user.\n"
+                    },
+                    "ttl": {
+                        "type": "integer",
+                        "description": "TTL attribute value for the record.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "infoblox:ip/association:Association": {
+            "properties": {
+                "duid": {
+                    "type": "string",
+                    "description": "DHCP unique identifier for IPv6.\n"
+                },
+                "enableDhcp": {
+                    "type": "boolean",
+                    "description": "The flag which defines if the host record is to be used for IPAM purposes.\n"
+                },
+                "internalId": {
+                    "type": "string",
+                    "description": "This value must point to the ID of the appropriate allocation resource. Required on resource creation.\n"
+                },
+                "macAddr": {
+                    "type": "string",
+                    "description": "MAC address of a cloud instance.\n"
+                },
+                "ref": {
+                    "type": "string",
+                    "description": "NIOS object's reference, not to be set by a user.\n"
+                }
+            },
+            "required": [
+                "ref"
+            ],
+            "inputProperties": {
+                "duid": {
+                    "type": "string",
+                    "description": "DHCP unique identifier for IPv6.\n"
+                },
+                "enableDhcp": {
+                    "type": "boolean",
+                    "description": "The flag which defines if the host record is to be used for IPAM purposes.\n"
+                },
+                "internalId": {
+                    "type": "string",
+                    "description": "This value must point to the ID of the appropriate allocation resource. Required on resource creation.\n"
+                },
+                "macAddr": {
+                    "type": "string",
+                    "description": "MAC address of a cloud instance.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Association resources.\n",
+                "properties": {
+                    "duid": {
+                        "type": "string",
+                        "description": "DHCP unique identifier for IPv6.\n"
+                    },
+                    "enableDhcp": {
+                        "type": "boolean",
+                        "description": "The flag which defines if the host record is to be used for IPAM purposes.\n"
+                    },
+                    "internalId": {
+                        "type": "string",
+                        "description": "This value must point to the ID of the appropriate allocation resource. Required on resource creation.\n"
+                    },
+                    "macAddr": {
+                        "type": "string",
+                        "description": "MAC address of a cloud instance.\n"
+                    },
+                    "ref": {
+                        "type": "string",
+                        "description": "NIOS object's reference, not to be set by a user.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "infoblox:ipv4/allocation:Allocation": {
+            "properties": {
+                "cidr": {
+                    "type": "string",
+                    "description": "The address in cidr format.\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "A description of IP address allocation.\n"
+                },
+                "dnsView": {
+                    "type": "string",
+                    "description": "Dns View under which the zone has been created.\n"
+                },
+                "enableDns": {
+                    "type": "boolean",
+                    "description": "flag that defines if the host record is to be used for DNS Purposes.\n"
+                },
+                "extAttrs": {
+                    "type": "string",
+                    "description": "The extensible attributes for IP address allocation, as a map in JSON format\n"
+                },
+                "fqdn": {
+                    "type": "string",
+                    "description": "The host name for Host Record in FQDN format.\n"
+                },
+                "ipAddr": {
+                    "type": "string",
+                    "description": "IP address of cloud instance.Set a valid IP for static allocation and leave empty if dynamically allocated.\n"
+                },
+                "networkView": {
+                    "type": "string",
+                    "description": "Network view name of NIOS server.\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "TTL attribute value for the record.\n"
+                }
+            },
+            "required": [
+                "fqdn",
+                "ipAddr"
+            ],
+            "inputProperties": {
+                "cidr": {
+                    "type": "string",
+                    "description": "The address in cidr format.\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "A description of IP address allocation.\n"
+                },
+                "dnsView": {
+                    "type": "string",
+                    "description": "Dns View under which the zone has been created.\n"
+                },
+                "enableDns": {
+                    "type": "boolean",
+                    "description": "flag that defines if the host record is to be used for DNS Purposes.\n"
+                },
+                "extAttrs": {
+                    "type": "string",
+                    "description": "The extensible attributes for IP address allocation, as a map in JSON format\n"
+                },
+                "fqdn": {
+                    "type": "string",
+                    "description": "The host name for Host Record in FQDN format.\n"
+                },
+                "ipAddr": {
+                    "type": "string",
+                    "description": "IP address of cloud instance.Set a valid IP for static allocation and leave empty if dynamically allocated.\n"
+                },
+                "networkView": {
+                    "type": "string",
+                    "description": "Network view name of NIOS server.\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "TTL attribute value for the record.\n"
+                }
+            },
+            "requiredInputs": [
+                "fqdn"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Allocation resources.\n",
+                "properties": {
+                    "cidr": {
+                        "type": "string",
+                        "description": "The address in cidr format.\n"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "A description of IP address allocation.\n"
+                    },
+                    "dnsView": {
+                        "type": "string",
+                        "description": "Dns View under which the zone has been created.\n"
+                    },
+                    "enableDns": {
+                        "type": "boolean",
+                        "description": "flag that defines if the host record is to be used for DNS Purposes.\n"
+                    },
+                    "extAttrs": {
+                        "type": "string",
+                        "description": "The extensible attributes for IP address allocation, as a map in JSON format\n"
+                    },
+                    "fqdn": {
+                        "type": "string",
+                        "description": "The host name for Host Record in FQDN format.\n"
+                    },
+                    "ipAddr": {
+                        "type": "string",
+                        "description": "IP address of cloud instance.Set a valid IP for static allocation and leave empty if dynamically allocated.\n"
+                    },
+                    "networkView": {
+                        "type": "string",
+                        "description": "Network view name of NIOS server.\n"
+                    },
+                    "ttl": {
+                        "type": "integer",
+                        "description": "TTL attribute value for the record.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "infoblox:ipv4/association:Association": {
+            "properties": {
+                "cidr": {
+                    "type": "string",
+                    "description": "The address in cidr format.\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "A description of the IP association.\n"
+                },
+                "dnsView": {
+                    "type": "string",
+                    "description": "view in which record has to be created.\n"
+                },
+                "duid": {
+                    "type": "string",
+                    "description": "DHCP unique identifier for IPv6.\n"
+                },
+                "enableDhcp": {
+                    "type": "boolean",
+                    "description": "flag that defines if the host record is to be used for IPAM Purposes.\n"
+                },
+                "enableDns": {
+                    "type": "boolean",
+                    "description": "flag that defines if the host record is to be used for DNS Purposes\n"
+                },
+                "extAttrs": {
+                    "type": "string",
+                    "description": "The Extensible attributes for IP Association, as a map in JSON format\n"
+                },
+                "fqdn": {
+                    "type": "string",
+                    "description": "The host name for Host Record in FQDN format.\n"
+                },
+                "ipAddr": {
+                    "type": "string",
+                    "description": "IP address of cloud instance.\n"
+                },
+                "macAddr": {
+                    "type": "string",
+                    "description": "mac address of cloud instance.\n"
+                },
+                "networkView": {
+                    "type": "string",
+                    "description": "Network view name of NIOS server.\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "TTL attribute value for the record.\n"
+                }
+            },
+            "required": [
+                "fqdn",
+                "ipAddr"
+            ],
+            "inputProperties": {
+                "cidr": {
+                    "type": "string",
+                    "description": "The address in cidr format.\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "A description of the IP association.\n"
+                },
+                "dnsView": {
+                    "type": "string",
+                    "description": "view in which record has to be created.\n"
+                },
+                "duid": {
+                    "type": "string",
+                    "description": "DHCP unique identifier for IPv6.\n"
+                },
+                "enableDhcp": {
+                    "type": "boolean",
+                    "description": "flag that defines if the host record is to be used for IPAM Purposes.\n"
+                },
+                "enableDns": {
+                    "type": "boolean",
+                    "description": "flag that defines if the host record is to be used for DNS Purposes\n"
+                },
+                "extAttrs": {
+                    "type": "string",
+                    "description": "The Extensible attributes for IP Association, as a map in JSON format\n"
+                },
+                "fqdn": {
+                    "type": "string",
+                    "description": "The host name for Host Record in FQDN format.\n"
+                },
+                "ipAddr": {
+                    "type": "string",
+                    "description": "IP address of cloud instance.\n"
+                },
+                "macAddr": {
+                    "type": "string",
+                    "description": "mac address of cloud instance.\n"
+                },
+                "networkView": {
+                    "type": "string",
+                    "description": "Network view name of NIOS server.\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "TTL attribute value for the record.\n"
+                }
+            },
+            "requiredInputs": [
+                "fqdn",
+                "ipAddr"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Association resources.\n",
+                "properties": {
+                    "cidr": {
+                        "type": "string",
+                        "description": "The address in cidr format.\n"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "A description of the IP association.\n"
+                    },
+                    "dnsView": {
+                        "type": "string",
+                        "description": "view in which record has to be created.\n"
+                    },
+                    "duid": {
+                        "type": "string",
+                        "description": "DHCP unique identifier for IPv6.\n"
+                    },
+                    "enableDhcp": {
+                        "type": "boolean",
+                        "description": "flag that defines if the host record is to be used for IPAM Purposes.\n"
+                    },
+                    "enableDns": {
+                        "type": "boolean",
+                        "description": "flag that defines if the host record is to be used for DNS Purposes\n"
+                    },
+                    "extAttrs": {
+                        "type": "string",
+                        "description": "The Extensible attributes for IP Association, as a map in JSON format\n"
+                    },
+                    "fqdn": {
+                        "type": "string",
+                        "description": "The host name for Host Record in FQDN format.\n"
+                    },
+                    "ipAddr": {
+                        "type": "string",
+                        "description": "IP address of cloud instance.\n"
+                    },
+                    "macAddr": {
+                        "type": "string",
+                        "description": "mac address of cloud instance.\n"
+                    },
+                    "networkView": {
+                        "type": "string",
+                        "description": "Network view name of NIOS server.\n"
+                    },
+                    "ttl": {
+                        "type": "integer",
+                        "description": "TTL attribute value for the record.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "infoblox:ipv4/network:Network": {
+            "properties": {
+                "allocatePrefixLen": {
+                    "type": "integer",
+                    "description": "Set the parameter's value \u003e 0 to allocate next available network with corresponding prefix length from the network\ncontainer defined by 'parent_cidr'\n"
+                },
+                "cidr": {
+                    "type": "string",
+                    "description": "The network block in cidr format.\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "A string describing the network\n"
+                },
+                "extAttrs": {
+                    "type": "string",
+                    "description": "The Extensible attributes of the Network, as a map in JSON format\n"
+                },
+                "gateway": {
+                    "type": "string",
+                    "description": "Gateway's IP address of the network. By default, the first IP address is set as gateway address; if the value is 'none'\nthen the network has no gateway.\n"
+                },
+                "networkView": {
+                    "type": "string",
+                    "description": "Network view name available in NIOS Server.\n"
+                },
+                "parentCidr": {
+                    "type": "string",
+                    "description": "The parent network container block in cidr format to allocate from.\n"
+                },
+                "reserveIp": {
+                    "type": "integer",
+                    "description": "The number of IP's you want to reserve in IPv4 Network.\n"
+                },
+                "reserveIpv6": {
+                    "type": "integer",
+                    "description": "The number of IP's you want to reserve in IPv6 Network\n"
+                }
+            },
+            "required": [
+                "cidr",
+                "gateway",
+                "reserveIp",
+                "reserveIpv6"
+            ],
+            "inputProperties": {
+                "allocatePrefixLen": {
+                    "type": "integer",
+                    "description": "Set the parameter's value \u003e 0 to allocate next available network with corresponding prefix length from the network\ncontainer defined by 'parent_cidr'\n"
+                },
+                "cidr": {
+                    "type": "string",
+                    "description": "The network block in cidr format.\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "A string describing the network\n"
+                },
+                "extAttrs": {
+                    "type": "string",
+                    "description": "The Extensible attributes of the Network, as a map in JSON format\n"
+                },
+                "gateway": {
+                    "type": "string",
+                    "description": "Gateway's IP address of the network. By default, the first IP address is set as gateway address; if the value is 'none'\nthen the network has no gateway.\n"
+                },
+                "networkView": {
+                    "type": "string",
+                    "description": "Network view name available in NIOS Server.\n"
+                },
+                "parentCidr": {
+                    "type": "string",
+                    "description": "The parent network container block in cidr format to allocate from.\n"
+                },
+                "reserveIp": {
+                    "type": "integer",
+                    "description": "The number of IP's you want to reserve in IPv4 Network.\n"
+                },
+                "reserveIpv6": {
+                    "type": "integer",
+                    "description": "The number of IP's you want to reserve in IPv6 Network\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Network resources.\n",
+                "properties": {
+                    "allocatePrefixLen": {
+                        "type": "integer",
+                        "description": "Set the parameter's value \u003e 0 to allocate next available network with corresponding prefix length from the network\ncontainer defined by 'parent_cidr'\n"
+                    },
+                    "cidr": {
+                        "type": "string",
+                        "description": "The network block in cidr format.\n"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "A string describing the network\n"
+                    },
+                    "extAttrs": {
+                        "type": "string",
+                        "description": "The Extensible attributes of the Network, as a map in JSON format\n"
+                    },
+                    "gateway": {
+                        "type": "string",
+                        "description": "Gateway's IP address of the network. By default, the first IP address is set as gateway address; if the value is 'none'\nthen the network has no gateway.\n"
+                    },
+                    "networkView": {
+                        "type": "string",
+                        "description": "Network view name available in NIOS Server.\n"
+                    },
+                    "parentCidr": {
+                        "type": "string",
+                        "description": "The parent network container block in cidr format to allocate from.\n"
+                    },
+                    "reserveIp": {
+                        "type": "integer",
+                        "description": "The number of IP's you want to reserve in IPv4 Network.\n"
+                    },
+                    "reserveIpv6": {
+                        "type": "integer",
+                        "description": "The number of IP's you want to reserve in IPv6 Network\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "infoblox:ipv4/networkContainer:NetworkContainer": {
+            "properties": {
+                "cidr": {
+                    "type": "string",
+                    "description": "The network container's address, in CIDR format.\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "A description of the network container.\n"
+                },
+                "extAttrs": {
+                    "type": "string",
+                    "description": "The Extensible attributes of the network container to be added/updated, as a map in JSON format\n"
+                },
+                "networkView": {
+                    "type": "string",
+                    "description": "The name of network view for the network container.\n"
+                }
+            },
+            "required": [
+                "cidr"
+            ],
+            "inputProperties": {
+                "cidr": {
+                    "type": "string",
+                    "description": "The network container's address, in CIDR format.\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "A description of the network container.\n"
+                },
+                "extAttrs": {
+                    "type": "string",
+                    "description": "The Extensible attributes of the network container to be added/updated, as a map in JSON format\n"
+                },
+                "networkView": {
+                    "type": "string",
+                    "description": "The name of network view for the network container.\n"
+                }
+            },
+            "requiredInputs": [
+                "cidr"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NetworkContainer resources.\n",
+                "properties": {
+                    "cidr": {
+                        "type": "string",
+                        "description": "The network container's address, in CIDR format.\n"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "A description of the network container.\n"
+                    },
+                    "extAttrs": {
+                        "type": "string",
+                        "description": "The Extensible attributes of the network container to be added/updated, as a map in JSON format\n"
+                    },
+                    "networkView": {
+                        "type": "string",
+                        "description": "The name of network view for the network container.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "infoblox:record/a:A": {
+            "properties": {
+                "cidr": {
+                    "type": "string",
+                    "description": "Network to allocate an IP address from, when the 'ip_addr' field is empty (dynamic allocation). The address is in CIDR\nformat. For static allocation, leave this field empty.\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "Description of the A-record.\n"
+                },
+                "dnsView": {
+                    "type": "string",
+                    "description": "DNS view which the zone does exist within.\n"
+                },
+                "extAttrs": {
+                    "type": "string",
+                    "description": "Extensible attributes of the A-record to be added/updated, as a map in JSON format\n"
+                },
+                "fqdn": {
+                    "type": "string",
+                    "description": "FQDN for the A-record.\n"
+                },
+                "ipAddr": {
+                    "type": "string",
+                    "description": "IP address to associate with the A-record. For static allocation, set the field with a valid IP address. For dynamic\nallocation, leave this field empty and set 'cidr' and 'network_view' fields.\n"
+                },
+                "networkView": {
+                    "type": "string",
+                    "description": "Network view to use when allocating an IP address from a network dynamically. For static allocation, leave this field\nempty.\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "TTL value for the A-record.\n"
+                }
+            },
+            "required": [
+                "fqdn",
+                "ipAddr",
+                "networkView"
+            ],
+            "inputProperties": {
+                "cidr": {
+                    "type": "string",
+                    "description": "Network to allocate an IP address from, when the 'ip_addr' field is empty (dynamic allocation). The address is in CIDR\nformat. For static allocation, leave this field empty.\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "Description of the A-record.\n"
+                },
+                "dnsView": {
+                    "type": "string",
+                    "description": "DNS view which the zone does exist within.\n"
+                },
+                "extAttrs": {
+                    "type": "string",
+                    "description": "Extensible attributes of the A-record to be added/updated, as a map in JSON format\n"
+                },
+                "fqdn": {
+                    "type": "string",
+                    "description": "FQDN for the A-record.\n"
+                },
+                "ipAddr": {
+                    "type": "string",
+                    "description": "IP address to associate with the A-record. For static allocation, set the field with a valid IP address. For dynamic\nallocation, leave this field empty and set 'cidr' and 'network_view' fields.\n"
+                },
+                "networkView": {
+                    "type": "string",
+                    "description": "Network view to use when allocating an IP address from a network dynamically. For static allocation, leave this field\nempty.\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "TTL value for the A-record.\n"
+                }
+            },
+            "requiredInputs": [
+                "fqdn"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering A resources.\n",
+                "properties": {
+                    "cidr": {
+                        "type": "string",
+                        "description": "Network to allocate an IP address from, when the 'ip_addr' field is empty (dynamic allocation). The address is in CIDR\nformat. For static allocation, leave this field empty.\n"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "Description of the A-record.\n"
+                    },
+                    "dnsView": {
+                        "type": "string",
+                        "description": "DNS view which the zone does exist within.\n"
+                    },
+                    "extAttrs": {
+                        "type": "string",
+                        "description": "Extensible attributes of the A-record to be added/updated, as a map in JSON format\n"
+                    },
+                    "fqdn": {
+                        "type": "string",
+                        "description": "FQDN for the A-record.\n"
+                    },
+                    "ipAddr": {
+                        "type": "string",
+                        "description": "IP address to associate with the A-record. For static allocation, set the field with a valid IP address. For dynamic\nallocation, leave this field empty and set 'cidr' and 'network_view' fields.\n"
+                    },
+                    "networkView": {
+                        "type": "string",
+                        "description": "Network view to use when allocating an IP address from a network dynamically. For static allocation, leave this field\nempty.\n"
+                    },
+                    "ttl": {
+                        "type": "integer",
+                        "description": "TTL value for the A-record.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "infoblox:record/aAAA:AAAA": {
+            "properties": {
+                "cidr": {
+                    "type": "string",
+                    "description": "The network address in cidr format under which record has to be created.\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "A description about AAAA record.\n"
+                },
+                "dnsView": {
+                    "type": "string",
+                    "description": "Dns View under which the zone has been created.\n"
+                },
+                "extAttrs": {
+                    "type": "string",
+                    "description": "The Extensible attributes of AAAA record to be added/updated, as a map in JSON format\n"
+                },
+                "fqdn": {
+                    "type": "string",
+                    "description": "The name of the AAAA record in FQDN format.\n"
+                },
+                "ipv6Addr": {
+                    "type": "string",
+                    "description": "IPv6 address for record creation. Set the field with valid IP for static allocation. If to be dynamically allocated set\ncidr field\n"
+                },
+                "networkView": {
+                    "type": "string",
+                    "description": "Network view name of NIOS server.\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "TTL attribute value for the record.\n"
+                }
+            },
+            "required": [
+                "fqdn",
+                "ipv6Addr",
+                "networkView"
+            ],
+            "inputProperties": {
+                "cidr": {
+                    "type": "string",
+                    "description": "The network address in cidr format under which record has to be created.\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "A description about AAAA record.\n"
+                },
+                "dnsView": {
+                    "type": "string",
+                    "description": "Dns View under which the zone has been created.\n"
+                },
+                "extAttrs": {
+                    "type": "string",
+                    "description": "The Extensible attributes of AAAA record to be added/updated, as a map in JSON format\n"
+                },
+                "fqdn": {
+                    "type": "string",
+                    "description": "The name of the AAAA record in FQDN format.\n"
+                },
+                "ipv6Addr": {
+                    "type": "string",
+                    "description": "IPv6 address for record creation. Set the field with valid IP for static allocation. If to be dynamically allocated set\ncidr field\n"
+                },
+                "networkView": {
+                    "type": "string",
+                    "description": "Network view name of NIOS server.\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "TTL attribute value for the record.\n"
+                }
+            },
+            "requiredInputs": [
+                "fqdn"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering AAAA resources.\n",
+                "properties": {
+                    "cidr": {
+                        "type": "string",
+                        "description": "The network address in cidr format under which record has to be created.\n"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "A description about AAAA record.\n"
+                    },
+                    "dnsView": {
+                        "type": "string",
+                        "description": "Dns View under which the zone has been created.\n"
+                    },
+                    "extAttrs": {
+                        "type": "string",
+                        "description": "The Extensible attributes of AAAA record to be added/updated, as a map in JSON format\n"
+                    },
+                    "fqdn": {
+                        "type": "string",
+                        "description": "The name of the AAAA record in FQDN format.\n"
+                    },
+                    "ipv6Addr": {
+                        "type": "string",
+                        "description": "IPv6 address for record creation. Set the field with valid IP for static allocation. If to be dynamically allocated set\ncidr field\n"
+                    },
+                    "networkView": {
+                        "type": "string",
+                        "description": "Network view name of NIOS server.\n"
+                    },
+                    "ttl": {
+                        "type": "integer",
+                        "description": "TTL attribute value for the record.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "infoblox:record/cName:CName": {
+            "properties": {
+                "alias": {
+                    "type": "string",
+                    "description": "The alias name in FQDN format.\n"
+                },
+                "canonical": {
+                    "type": "string",
+                    "description": "The Canonical name in FQDN format.\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "A description about CNAME record.\n"
+                },
+                "dnsView": {
+                    "type": "string",
+                    "description": "Dns View under which the zone has been created.\n"
+                },
+                "extAttrs": {
+                    "type": "string",
+                    "description": "The Extensible attributes of CNAME record, as a map in JSON format\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "TTL attribute value for the record.\n"
+                }
+            },
+            "required": [
+                "alias",
+                "canonical"
+            ],
+            "inputProperties": {
+                "alias": {
+                    "type": "string",
+                    "description": "The alias name in FQDN format.\n"
+                },
+                "canonical": {
+                    "type": "string",
+                    "description": "The Canonical name in FQDN format.\n"
+                },
+                "comment": {
+                    "type": "string",
+                    "description": "A description about CNAME record.\n"
+                },
+                "dnsView": {
+                    "type": "string",
+                    "description": "Dns View under which the zone has been created.\n"
+                },
+                "extAttrs": {
+                    "type": "string",
+                    "description": "The Extensible attributes of CNAME record, as a map in JSON format\n"
+                },
+                "ttl": {
+                    "type": "integer",
+                    "description": "TTL attribute value for the record.\n"
+                }
+            },
+            "requiredInputs": [
+                "alias",
+                "canonical"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CName resources.\n",
+                "properties": {
+                    "alias": {
+                        "type": "string",
+                        "description": "The alias name in FQDN format.\n"
+                    },
+                    "canonical": {
+                        "type": "string",
+                        "description": "The Canonical name in FQDN format.\n"
+                    },
+                    "comment": {
+                        "type": "string",
+                        "description": "A description about CNAME record.\n"
+                    },
+                    "dnsView": {
+                        "type": "string",
+                        "description": "Dns View under which the zone has been created.\n"
+                    },
+                    "extAttrs": {
+                        "type": "string",
+                        "description": "The Extensible attributes of CNAME record, as a map in JSON format\n"
+                    },
+                    "ttl": {
+                        "type": "integer",
+                        "description": "TTL attribute value for the record.\n"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}

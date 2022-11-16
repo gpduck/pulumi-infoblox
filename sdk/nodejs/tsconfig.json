@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "outDir": "bin",
+        "target": "es2016",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "declaration": true,
+        "sourceMap": true,
+        "stripInternal": true,
+        "experimentalDecorators": true,
+        "noFallthroughCasesInSwitch": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true
+    },
+    "files": [
+        "config/index.ts",
+        "config/vars.ts",
+        "index.ts",
+        "ip/allocation.ts",
+        "ip/association.ts",
+        "ip/index.ts",
+        "ipv4/allocation.ts",
+        "ipv4/association.ts",
+        "ipv4/index.ts",
+        "ipv4/network.ts",
+        "ipv4/networkContainer.ts",
+        "provider.ts",
+        "record/a.ts",
+        "record/aaaa.ts",
+        "record/cname.ts",
+        "record/index.ts",
+        "utilities.ts"
+    ]
+}
