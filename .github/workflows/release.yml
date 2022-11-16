@@ -112,7 +112,8 @@ jobs:
         with:
           access: "public"
           token: ${{ env.NPM_TOKEN }}
-          package: ${{github.workspace}}/sdk/nodejs/bin/package.json
+          package: ${{github.workspace}}/sdk/nodejs/bin/package.
+          registry: ${{env.NPM_REGISTRY_URL}}
       - if: ${{ matrix.language == 'dotnet' && env.PUBLISH_NUGET == 'true' }}
         name: publish nuget package
         run: |
