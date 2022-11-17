@@ -25,6 +25,6 @@
     "pulumi": {
         "resource": true,
         "name": "infoblox",
-        "server": "https://github.com/gpduck/pulumi-infoblox/releases/"
+        "server": "github://api.github.com/gpduck/pulumi-infoblox"
     }
 }

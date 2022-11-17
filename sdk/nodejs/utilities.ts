@@ -50,5 +50,5 @@ export function getVersion(): string {
 
 /** @internal */
 export function resourceOptsDefaults(): any {
-    return { version: getVersion(), pluginDownloadURL: "https://github.com/gpduck/pulumi-infoblox/releases/" };
+    return { version: getVersion(), pluginDownloadURL: "github://api.github.com/gpduck/pulumi-infoblox" };
 }
