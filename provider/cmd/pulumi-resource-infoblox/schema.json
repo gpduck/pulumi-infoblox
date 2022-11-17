@@ -10,7 +10,7 @@
     "license": "Apache-2.0",
     "attribution": "This Pulumi package is based on the [`infoblox` Terraform Provider](https://github.com/gpduck/terraform-provider-infoblox).",
     "repository": "https://github.com/gpduck/pulumi-infoblox",
-    "pluginDownloadURL": "https://github.com/gpduck/pulumi-infoblox/releases/",
+    "pluginDownloadURL": "github://api.github.com/gpduck/pulumi-infoblox",
     "publisher": "gpduck",
     "meta": {
         "moduleFormat": "(.*)(?:/[^/]*)"
